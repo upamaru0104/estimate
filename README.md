@@ -1,24 +1,41 @@
-# README
+# アプリケーション名
+  estimate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+  見積書を作成し、pdfする
 
-Things you may want to cover:
+# URL
+  https://estimate-39197.onrender.com
 
-* Ruby version
 
-* System dependencies
+# テスト用アカウント	
+ログイン機能等を実装した場合は、ログインに必要な情報を記載。またBasic認証等を設けている場合は、そのID/Passも記載すること。
 
-* Configuration
 
-* Database creation
+# 利用方法	
+このアプリケーションの利用方法を記載。説明が長い場合は、箇条書きでリスト化すること。
 
-* Database initialization
 
-* How to run the test suite
+# アプリケーションを作成した背景	
+  事務作業の業務効率化のために作成
 
-* Services (job queues, cache servers, search engines, etc.)
+# 洗い出した要件	要件定義をまとめたスプレッドシートのリンクを記載。
 
-* Deployment instructions
+# 実装した機能についての画像やGIFおよびその説明
+実装した機能について、それぞれどのような特徴があるのかを列挙する形で記載。画像はGyazoで、GIFはGyazoGIFで撮影すること。
 
-* ...
+# 実装予定の機能	
+洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
+
+# データベース設計・画面遷移図	
+![ER](https://github.com/upamaru0104/estimate/assets/132050635/92ae2572-2812-435f-a0b3-0ec06ee88415)
+
+
+# 開発環境	
+使用した言語・サービスを記載。
+
+# ローカルでの動作方法※	
+git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記載。
+
+# 工夫したポイント※
+	制作背景・使用技術・開発方法・タスク管理など、企業へＰＲしたい事柄を記載。
