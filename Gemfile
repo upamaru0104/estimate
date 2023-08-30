@@ -59,3 +59,6 @@ group :production do
 end
 
 gem 'devise'
+
+gem 'prawn'
+gem 'prawn-table'
