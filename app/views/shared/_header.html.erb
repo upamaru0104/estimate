@@ -2,7 +2,7 @@
       <div class="header__bar row">
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
-            <%= link_to current_user.name, user_path(current_user), class: "user-name" %>
+            <%= link_to "マイページ", user_path(current_user), class: "user-name" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             <%= link_to "新規作成", new_estimate_path, class: "post" %>
           </div>
