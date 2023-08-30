@@ -15,5 +15,7 @@ module Estimate
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    # 以下の記述を追記
+    config.eager_load_paths += %W(#{Rails.root}/app/prawn)
   end
 end
