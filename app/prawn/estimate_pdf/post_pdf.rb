@@ -7,7 +7,14 @@ module EstimatePdf
       super(page_size: 'A4') # 新規PDF作成
       stroke_axis # 座標を表示
 
-      header
+       header
+
+      cols = [
+        ['banana', 'apple', 'peach'],
+        ['kiwi', 'grape', ''],
+        ['cherry', 'watermelon', '']
+      ]
+      table cols
     end
 
     def header
