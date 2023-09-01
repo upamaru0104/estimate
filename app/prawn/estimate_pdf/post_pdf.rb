@@ -15,6 +15,8 @@ module EstimatePdf
         ['cherry', 'watermelon', '']
       ]
       table cols
+
+      image 'app/assets/images/test_image.png', at: [10, 200]
     end
 
     def header
