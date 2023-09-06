@@ -1,0 +1,2 @@
+class EstimateProduct < ApplicationRecord
+end
