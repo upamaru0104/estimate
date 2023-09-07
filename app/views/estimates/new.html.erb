@@ -1,5 +1,5 @@
 新規投稿
-<%= link_to "PDFを表示", new_estimate_path(format: "pdf") %>
+<%# <%= link_to "PDFを表示", estimates_path(format: "pdf") %> %>
 <div class="estimates-form">
   <%= form_with model: @estimate_product, url: estimates_path, local: true do |f| %>
     <div class="form-text">見積番号</div>
