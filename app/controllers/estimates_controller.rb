@@ -16,16 +16,15 @@ class EstimatesController < ApplicationController
         if @estimate_product.save
           post_pdf = EstimatePdf::PostPdf.new(@estimate_product)
           send_data post_pdf.render,
-          filename: "#{estimate_product.estimate_number}.pdf", # 作成されるファイル名を見積書番号に変更する
+          filename: "#{@estimate_product.estimate_number}.pdf", # 作成されるファイル名を見積書番号に変更する
           type: 'application/pdf',
           disposition: 'inline' # 外すとダウンロード
         else
-          render :new
+          format.html { render :new }
         end
       end
     end
-  end
-
+  end  
   private
 
   def estimate_product_params
