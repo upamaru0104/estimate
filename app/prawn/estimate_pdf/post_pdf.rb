@@ -26,7 +26,7 @@ module EstimatePdf
       text_box '見積書', :align => :center, size: 30
 
       font FONT_Light
-      text_box estimate_product.company_name, at: [0, 700], size: 20
+      text_box @estimate_product.company_name, at: [0, 700], size: 20
       text_box '下記の通り、お見積り申し上げます。', at: [0, 670], size: 10
 
       bounding_box([0,650], :width=>200,:height=>100) do
@@ -45,8 +45,8 @@ module EstimatePdf
       end
 
       bounding_box([355, 690], :width => 200, :height => 100) do
-        text_box estimate_product.estimate_number, :align => :right, size: 12
-        text_box estimate_product.estimate_date,:at => [0, 85], :align => :right, size: 12
+        text_box @estimate_product.estimate_number, :align => :right, size: 12
+        text_box @estimate_product.estimate_date,:at => [0, 85], :align => :right, size: 12
       end
 
       bounding_box([360, 650], :width => 200, :height => 100) do
@@ -63,7 +63,7 @@ module EstimatePdf
     def total_place
       bounding_box([10,530], :width=>300,:height=>50) do
         rows = [
-          ["合計",estimate_product.total_place"100000円(税込)"]
+          ["合計",@estimate_product.total_place+"(税込)"]
         ]
         table rows, cell_style: { height: 50, width: 200, padding: 13 , size: 20} do
           # 1列目はセンター寄せ
