@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2023_09_06_034426) do
 
   create_table "estimate_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "estimate_number", default: "", null: false
-    t.date "estimate_date", null: false
     t.string "company_name", default: "", null: false
     t.integer "total_price", null: false
     t.string "ancestry", default: "", null: false
