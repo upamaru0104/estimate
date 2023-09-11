@@ -3,7 +3,7 @@
 module EstimatePdf
   class PostPdf < Prawn::Document
 
-    def initialize
+    def initialize(estimate_product, current_user)
       super(
         page_size: 'A4',
         top_margin: 40,
@@ -12,12 +12,14 @@ module EstimatePdf
         left_margin: 20
       ) # 新規PDF作成
       # stroke_axis # 座標を表示
+      @estimate_product = estimate_product
+      @current_user = current_user
 
-        header
-        total_place
+      header
+      total_place
 
-        move_down 20
-        contents
+      move_down 20
+      contents
     end
 
     def header
@@ -25,7 +27,7 @@ module EstimatePdf
       text_box '見積書', :align => :center, size: 30
 
       font FONT_Light
-      text_box '会社名　御中', at: [0, 700], size: 20
+      text_box @estimate_product.company_name, at: [0, 700], size: 20
       text_box '下記の通り、お見積り申し上げます。', at: [0, 670], size: 10
 
       bounding_box([0,650], :width=>200,:height=>100) do
@@ -44,8 +46,8 @@ module EstimatePdf
       end
 
       bounding_box([355, 690], :width => 200, :height => 100) do
-        text_box "No　　　00000", :align => :right, size: 12
-        text_box "見積日　　20XX/XX/XX",:at => [0, 85], :align => :right, size: 12
+        text_box @estimate_product.estimate_number, :align => :right, size: 12
+        text_box "#{Date.today}",:at => [0, 85], :align => :right, size: 12
       end
 
       bounding_box([360, 650], :width => 200, :height => 100) do
@@ -54,7 +56,7 @@ module EstimatePdf
         text_box "住所は日本のどこか",:at => [20, 70]
         text_box "どこかの番地",:at => [20, 55]
         text_box "TEL:012-3456-7891",:at => [20, 40]
-        text_box "担当：誰か",:at => [20, 25]
+        text_box @current_user.name,:at => [20, 25]
       end
 
     end
@@ -62,7 +64,7 @@ module EstimatePdf
     def total_place
       bounding_box([10,530], :width=>300,:height=>50) do
         rows = [
-          ["合計","100000円(税込)"]
+          ["合計","#{@estimate_product.total_price}円(税込)"]
         ]
         table rows, cell_style: { height: 50, width: 200, padding: 13 , size: 20} do
           # 1列目はセンター寄せ
@@ -106,6 +108,12 @@ module EstimatePdf
       table rows, cell_style: { height: 20, padding: 3, position: :center} do
         rows(0).align = :center
         rows(0).background_color = 'ff7500'
+      end
+
+      def date_change
+        date_obj = Date.today
+        date_str = date_obj.strftime("%Y年%m月%d日")
+        @estimate_product.estimate_date = date_str
       end
     end
   end
