@@ -1,5 +1,5 @@
 class EstimatesController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit, :destroy]
+   before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
   def index
   end
@@ -9,22 +9,20 @@ class EstimatesController < ApplicationController
   end
 
   def create
-    @estimate_product = EstimateProduct.new(estimate_product_params)
-    date_change
-    respond_to do |format|
-      format.pdf do
-        if @estimate_product.save
-          post_pdf = EstimatePdf::PostPdf.new(@estimate_product)
-          send_data post_pdf.render,
-          filename: "#{@estimate_product.estimate_number}.pdf", # 作成されるファイル名を見積書番号に変更する
-          type: 'application/pdf',
-          disposition: 'inline' # 外すとダウンロード
-        else
-          format.html { render :new }
-        end
-      end
-    end
-  end  
+    # binding.pry
+  @estimate_product = EstimateProduct.new(estimate_product_params)
+  date_change
+    # if @estimate_product.save
+      post_pdf = EstimatePdf::PostPdf.new(@estimate_product, current_user)
+      send_data post_pdf.render,
+      filename: "#{@estimate_product.estimate_number}.pdf", # 作成されるファイル名を見積書番号に変更する
+      type: 'application/pdf',
+      disposition: 'inline' # 外すとダウンロード
+    # else
+    #   render :new
+    # end
+  end
+
   private
 
   def estimate_product_params
