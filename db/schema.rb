@@ -25,18 +25,6 @@ ActiveRecord::Schema.define(version: 2023_09_06_034426) do
     t.index ["user_id"], name: "index_estimate_products_on_user_id"
   end
 
-  create_table "estimates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "estimate_number", default: "", null: false
-    t.date "estimate_date", null: false
-    t.string "company_name", default: "", null: false
-    t.integer "total_price", null: false
-    t.string "ancestry", default: "", null: false
-    t.integer "quantity", null: false
-    t.string "user", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
