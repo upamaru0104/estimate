@@ -62,3 +62,7 @@ gem 'devise'
 
 gem 'prawn'
 gem 'prawn-table'
+
+gem 'pry-rails'
+
+gem "net-http"
