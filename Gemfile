@@ -66,3 +66,5 @@ gem 'prawn-table'
 gem 'pry-rails'
 
 gem "net-http"
+
+gem 'ancestry'
