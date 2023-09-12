@@ -3,10 +3,10 @@ class EstimateProduct < ApplicationRecord
     validates :estimate_number, uniqueness: true
     validates :company_name
     validates :total_price
-    validates :ancestry
     validates :quantity
   end
 
   belongs_to :user
+  has_ancestry
 
 end

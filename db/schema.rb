@@ -16,7 +16,9 @@ ActiveRecord::Schema.define(version: 2023_09_06_034426) do
     t.string "estimate_number", default: "", null: false
     t.string "company_name", default: "", null: false
     t.integer "total_price", null: false
-    t.string "ancestry", default: "", null: false
+    t.string "ancestry"
+    t.string "summary"
+    t.integer "unit_price"
     t.integer "quantity", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
