@@ -10,15 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_06_034426) do
+ActiveRecord::Schema.define(version: 2023_09_16_134050) do
+
+  create_table "estimate_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "ancestry"
+    t.string "summary"
+    t.integer "unit_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "estimate_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "estimate_number", default: "", null: false
     t.string "company_name", default: "", null: false
     t.integer "total_price", null: false
-    t.string "ancestry"
-    t.string "summary"
-    t.integer "unit_price"
     t.integer "quantity", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

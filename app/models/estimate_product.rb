@@ -7,6 +7,5 @@ class EstimateProduct < ApplicationRecord
   end
 
   belongs_to :user
-  has_ancestry
 
 end

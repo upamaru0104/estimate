@@ -2,7 +2,7 @@
   estimate
 
 # アプリケーション概要
-  見積書を作成し、pdfする
+  見積書を作成し、pdf化する
 
 # URL
   https://estimate-39197.onrender.com
