@@ -3,14 +3,23 @@
   <%= form_with model: @estimate_product, url: estimates_path, local: true do |f| %>
     <div class="form-text">見積番号</div>
     <%= f.text_field :estimate_number %>
+
     <div class="form-text">会社名</div>
     <%= f.text_field :company_name %>
+
     <div class="form-text">見積金額</div>
     <%= f.text_field :total_price %>
-    <div class="form-text">見積項目</div>
-    <%= f.text_field :ancestry %>
+
+    <div class="form-text">
+    見積項目
+      <div id="select-wrap">
+        <%= f.collection_select :ancestry, @parents, :id, :summary, {include_blank: "---"}, {id: "parent-category" } %>
+      </div>
+    </div>
+    
     <div class="form-text">数量</div>
     <%= f.text_field :quantity %>
+    
     <div class="form-btn">
       <%= f.submit 'PDF作成' %>
     </div>

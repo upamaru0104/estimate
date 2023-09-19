@@ -7,5 +7,6 @@ class EstimateProduct < ApplicationRecord
   end
 
   belongs_to :user
+  belongs_to :estimate_item
 
 end
