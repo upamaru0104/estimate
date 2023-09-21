@@ -6,7 +6,16 @@ class EstimatesController < ApplicationController
 
   def new
     @estimate_product = EstimateProduct.new
+    @estimate_item = EstimateItem.new
+    @parents = EstimateItem.all.order("id ASC").limit(3)
   end
+
+  def search
+    item = EstimateItem.find(params[:id])
+    children_item = item.children
+    render json:{ item: children_item }
+  end
+
 
   def create
   @estimate_product = EstimateProduct.new(estimate_product_params)
@@ -24,7 +33,7 @@ class EstimatesController < ApplicationController
   private
 
   def estimate_product_params
-    params.require(:estimate_product).permit(:estimate_number, :company_name, :total_price, :ancestry, :quantity).merge(user_id: current_user.id)
+    params.require(:estimate_product).permit(:estimate_number, :company_name, :total_price, :quantity).merge(user_id: current_user.id)
   end
 
 end
