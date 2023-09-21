@@ -65,7 +65,7 @@ window.addEventListener('load', function () {
   // 孫カテゴリーの値を全て取得する関数 
   const getGrandchildCategoryData = (grandchildCategory) => {
     const grandchildValue = grandchildCategory.value
-    categoryXHR(grandchildValue)
+    estimateXHR(grandchildValue)
 
     XHR.onload = () => {
       const GrandChildItems = XHR.response.item;
